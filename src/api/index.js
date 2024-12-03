@@ -1,8 +1,9 @@
-const express = require('express');
+import { Router } from 'express';
 
-const emojis = require('./emojis');
+import emojis from './emojis.js';
+import game from './game.js';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', (req, res) => {
   res.json({
@@ -11,5 +12,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/emojis', emojis);
+router.use('/game', game );
 
-module.exports = router;
+export default router;
